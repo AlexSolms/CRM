@@ -1,22 +1,63 @@
 .mat-drawer-container {
-    width: 100vw;
-    height: 100vh;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-  }
-  
-  .example-sidenav-content {
-    display: flex;
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+/* .example-sidenav-content {
+  display: flex;
   //  height: 100vh;
-    align-items: center;
+  align-items: center;
+  justify-content: center;
+} */
+
+.sidenav {
+  width: 300px;
+  .logoContainer {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 0 16px;
+    min-height: 56px;
+    display: flex;
     justify-content: center;
+    align-items: center;
   }
   
-  .example-sidenav {
-    padding: 20px;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding-left: 16px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      height: 48px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.08);
+      }
+    }
   }
-  .menu-icon{
-    cursor: pointer;
-  }
-  mat-toolbar-row{
-    gap: 16px;
-  }
+}
+
+
+.menu-icon {
+  cursor: pointer;
+}
+
+mat-toolbar-row {
+  gap: 16px;
+}
+
+
+
+mat-toolbar,
+mat-toolbar-row {
+  min-height: 56px;
+  height: 56px;
+}
+.routContainer{
+  margin: 16px 0 0 56px;
+}
