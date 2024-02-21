@@ -12,6 +12,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {provideNativeDateAdapter} from '@angular/material/core';
+import { User } from '../../../models/user.class';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -20,6 +24,8 @@ import {provideNativeDateAdapter} from '@angular/material/core';
   standalone: true,
   providers: [provideNativeDateAdapter()],
   imports: [
+    CommonModule,
+    FormsModule,
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
@@ -34,12 +40,17 @@ import {provideNativeDateAdapter} from '@angular/material/core';
   styleUrl: './add-user.component.scss'
 })
 export class AddUserComponent {
-  constructor(
-    public dialogRef: MatDialogRef<AddUserComponent>,
-    
-  ) {}
+
+  user: User = new User();
+  birthDate!: Date;
+
+  constructor(public dialogRef: MatDialogRef<AddUserComponent>) {  }
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+  save(){
+    this.user.birthDate = this.birthDate.getTime();
+    console.log(this.user);
   }
 }
