@@ -3,3 +3,16 @@
     right: 16px;
     bottom: 16px;
 }
+
+.card{
+border-radius: 16px;
+
+
+}
+.mat-mdc-row  { //.mat-mdc-cell
+    
+    cursor: pointer;
+    &:hover{
+        background-color: rgba(0, 0, 0, 0.068);
+    }
+  }
