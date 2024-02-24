@@ -12,10 +12,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { User } from '../../../models/user.class';
+//import { User } from '../../../models/user.class';
+import { User } from '../../../models/user.interface';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { Firestore, collection, collectionData, addDoc, updateDoc } from '@angular/fire/firestore';
 import { FirebaseService } from '../../firebase.service';
@@ -46,14 +47,20 @@ import { FirebaseService } from '../../firebase.service';
 export class AddUserComponent {
 
   firestore: Firestore = inject(Firestore);
-  firebaseService =inject(FirebaseService) 
+  firebaseService = inject(FirebaseService);
 
-  user: User = new User();
+
+  
   birthDate!: Date;
   loading: boolean = false;
+  firstName: string = '';
+  lastName: string = '';
+  street: string = '';
+  zipCode: number | null = null;
+  city: string = '';
 
   constructor(public dialogRef: MatDialogRef<AddUserComponent>) {
-    console.log('huhu', this.getNotesRef());
+
   }
 
   //schließt den Dialog, wenn ich daneben klicke
@@ -62,28 +69,24 @@ export class AddUserComponent {
   }
 
   async save() {
-    this.loading=true;
-    this.user.birthDate = this.birthDate.getTime();
-    //console.log(this.user);
-    await this.firebaseService.addToFirestore(this.user);
-    /* let getRef = collection(this.firestore, 'user');
-    await addDoc(getRef, this.user.toJson()).catch(
-      (err) => { console.error(err) }
-    ).then(
-      (result: any) => {
-        console.log("Document written with ID: ", result)
-      }); */
+    this.loading = true;
 
-    /* this.firestore.collection('user').add(this.user).then((result:any){
-
-    }); */
-    this.loading=false;
+    this.addUser();
+    
+    this.loading = false;
     this.dialogRef.close();
   }
 
-  //das hier ist nicht mehr nötig
-  async getNotesRef() {
-    return collection(this.firestore, 'user');
 
+  addUser() {
+    let user: User = {
+      firstName: this.firstName,
+      lastName: this.lastName,
+      birthDate: this.birthDate.getTime(),
+      street: this.street,
+      zipCode: this.zipCode,
+      city: this.city,
+    }
+    this.firebaseService.addToFirestore(user);
   }
 }

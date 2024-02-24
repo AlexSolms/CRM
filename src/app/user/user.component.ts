@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
@@ -6,6 +6,8 @@ import {MatDialogModule, MatDialog} from '@angular/material/dialog';
 import { AddUserComponent } from '../diaglog/add-user/add-user.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
+import { Firestore, onSnapshot } from '@angular/fire/firestore';
+import { FirebaseService } from '../firebase.service';
 
 export interface PeriodicElement {
   name: string;
@@ -42,10 +44,22 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrl: './user.component.scss'
 })
 export class UserComponent {
-  constructor(public dialog: MatDialog) {}
+
+  firestore: Firestore = inject(Firestore);
+  firebaseService =inject(FirebaseService);
+
   displayedColumns: string[] = ['name', 'email', 'city'];
   dataSource = ELEMENT_DATA;
+
+
+
+
+  constructor(public dialog: MatDialog) {
+  }
+ 
+
   seeMore(){
+
     
   }
   openDialog(){
