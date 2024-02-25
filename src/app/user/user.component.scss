@@ -8,21 +8,12 @@
     border-radius: 16px;
     overflow: hidden;
     max-height: 85vh;
-    mat-card-content{
-        overflow-Y: scroll;  
+
+    mat-card-content {
+        overflow-Y: scroll;
         margin-bottom: 16px;
     }
 
-}
-
-.mat-mdc-row {
-    //.mat-mdc-cell
-
-    cursor: pointer;
-
-    &:hover {
-        background-color: rgba(0, 0, 0, 0.068);
-    }
 }
 
 .user-table {
@@ -35,6 +26,7 @@
     tr {
         height: 52px;
         text-align: left;
+        cursor: pointer;
 
         &:hover {
             background-color: rgba(0, 0, 0, 0.034);

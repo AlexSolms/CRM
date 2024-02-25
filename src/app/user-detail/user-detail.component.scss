@@ -1,0 +1,49 @@
+mat-card {
+    background-color: rgb(125, 152, 153);
+}
+
+.head {
+    height: 400px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    @media screen and (min-width: 600px) {
+        justify-content: normal;
+    }
+    .headBottomContainer {
+        display: flex;
+        height: 400px;
+        align-items: center;
+
+        gap: 5vw;
+        flex-direction: column;
+
+        @media screen and (min-width: 600px) {
+            height: 200px;
+            flex-direction: row;
+            align-items: flex-end;
+        }
+
+        @media screen and (min-width: 800px) {}
+
+        .imgContainer {
+
+
+            img {
+                border-radius: 34%;
+                height: auto;
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+
+        .userDetailContainer {
+            
+            height: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+        }
+    }
+}

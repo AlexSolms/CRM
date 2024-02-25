@@ -11,16 +11,16 @@ export class FirebaseService {
   firestore: Firestore = inject(Firestore);
 
 userArry:User[]=[];
+
   unsubList;
   unsubSingleItem;
 
-  //user: User = new User();
 
 
   constructor() { 
     this.unsubList= this.getAllUsers();
    
-    this.unsubSingleItem = this.getSingleUser('nhrvkqYfNNoMWbLZrHgd');
+    this.unsubSingleItem = this.getSingleUser('3mV0khaEgxhEWcP8hx8i');
 
 
   }
@@ -45,6 +45,7 @@ getAllUsers(){
 getSingleUser(id:string){
   return onSnapshot(this.getSingleUserRef(id),(user) =>{
     console.log('user: ', user.data());
+    user.data()
   });
 }
 

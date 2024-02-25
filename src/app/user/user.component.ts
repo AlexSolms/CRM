@@ -10,6 +10,7 @@ import { Firestore, onSnapshot } from '@angular/fire/firestore';
 import { FirebaseService } from '../firebase.service';
 import { User } from '../../models/user.interface';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
@@ -42,7 +43,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
     MatDialogModule,
     MatCardModule,
     MatTableModule,
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
