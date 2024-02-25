@@ -54,20 +54,21 @@ export class UserComponent {
   firestore: Firestore = inject(Firestore);
   firebaseService =inject(FirebaseService);
 
-  displayedColumns: string[] = ['name', 'email', 'city'];
-  dataSource = ELEMENT_DATA;
+//  displayedColumns: string[] = ['name', 'email', 'city'];
+ // dataSource = ELEMENT_DATA;
 
 
 
 
   constructor(public dialog: MatDialog) {
     
-    console.log('ELEMENT_DATA: ',ELEMENT_DATA);
-    console.log('userArrystart: ', this.firebaseService.userArry);
+   // console.log('ELEMENT_DATA: ',ELEMENT_DATA);
+  //  console.log('userArrystart: ', this.firebaseService.userArry);
     
     
   }
  
+
   ngOnInit(){
     console.log('init: ');
     this.getData();
