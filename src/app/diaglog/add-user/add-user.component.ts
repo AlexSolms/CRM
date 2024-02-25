@@ -55,6 +55,7 @@ export class AddUserComponent {
   loading: boolean = false;
   firstName: string = '';
   lastName: string = '';
+  email:string='';
   street: string = '';
   zipCode: number | null = null;
   city: string = '';
@@ -82,6 +83,7 @@ export class AddUserComponent {
     let user: User = {
       firstName: this.firstName,
       lastName: this.lastName,
+      email: this.email,
       birthDate: this.birthDate.getTime(),
       street: this.street,
       zipCode: this.zipCode,

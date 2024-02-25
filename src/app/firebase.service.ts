@@ -10,7 +10,7 @@ import { Firestore, collection, collectionData, addDoc, updateDoc, doc, setDoc, 
 export class FirebaseService {
   firestore: Firestore = inject(Firestore);
 
-
+userArry:User[]=[];
   unsubList;
   unsubSingleItem;
 
@@ -19,7 +19,7 @@ export class FirebaseService {
 
   constructor() { 
     this.unsubList= this.getAllUsers();
-
+   
     this.unsubSingleItem = this.getSingleUser('nhrvkqYfNNoMWbLZrHgd');
 
 
@@ -32,9 +32,13 @@ ngonDestroy(){
 
 getAllUsers(){
   return onSnapshot(this.getUserRef() ,(list) =>{
+    this.userArry = [];
     list.forEach(element => {
-      console.log('element: ',element.data());
+     // console.log(this.setUserObject(element.data(),element.id));
+      this.userArry.push(this.setUserObject(element.data(),element.id));
+     // console.log(this.userArry);
     })
+    console.log('am ende des pushs',this.userArry);
   });
 }
 
@@ -49,6 +53,7 @@ getSingleUser(id:string){
     id:id,
   firstName: obj.firstName || '',
     lastName: obj.lastName || '',
+    email: obj.email || '',
     birthDate: obj.birthDate || '',
     street: obj.street || '',
     zipCode: obj.zipCode || '',

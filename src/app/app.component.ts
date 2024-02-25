@@ -4,9 +4,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
-//for firebase
-import { Firestore, collection, collectionData  } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -23,16 +21,11 @@ import { Observable } from 'rxjs';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  //for firebase start
-  firestore: Firestore = inject(Firestore);
-  items$: Observable<any[]>;
- //for firebase end
+
   title = 'simple-crm';
   showFiller = false;
-//for firebase start
+
   constructor() {
-    const aCollection = collection(this.firestore, 'items')
-    this.items$ = collectionData(aCollection);
-  }
-  //for firebase end
+   }
+  
 }
