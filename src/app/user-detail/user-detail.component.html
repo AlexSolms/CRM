@@ -1,4 +1,4 @@
-<mat-card class="headcard">
+<mat-card *ngIf="!globalVariablesService.addressdialog" class="headcard">
     <mat-card-content class="headCardContent">
         <div class="head">
             <div class="headBottomContainer">
@@ -23,7 +23,7 @@
         </div>
     </mat-card-content>
 </mat-card>
-<mat-card>
+<mat-card *ngIf="!globalVariablesService.addressdialog">
     <mat-card-content class="detailCardContentContainer">
         <div class="detailCardContent">
             <div class="addressContainer">
@@ -34,14 +34,13 @@
                 </mat-card-content>
             </div>
             <div class="buttonContainer">
-                <button mat-icon-button [matMenuTriggerFor]="beforeAddress" (click)="openAddressDiolog()">
-                    <mat-icon>more_vert</mat-icon>
+                <button mat-icon-button (click)="openAddressDiolog()">
+                    <mat-icon>edit</mat-icon>
                 </button>
-                <mat-menu #beforeAddress="matMenu" xPosition="before">
-                    <button mat-menu-item>Bearbeiten</button>
-                    <button mat-menu-item>Hinzufügen</button>
-                  </mat-menu>
+                
             </div>
         </div>
     </mat-card-content>
-</mat-card>
+</mat-card> <!-- *ngIf="globalVariablesService.addressdialog" -->
+
+<app-address-diaolog *ngIf="globalVariablesService.addressdialog"></app-address-diaolog>

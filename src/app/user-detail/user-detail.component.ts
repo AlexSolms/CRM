@@ -7,6 +7,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { GlobalVariablesService } from '../global-variables.service';
+import { CommonModule } from '@angular/common';
+import { AddressDiaologComponent } from '../diaglog/address-diaolog/address-diaolog.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -15,7 +17,9 @@ import { GlobalVariablesService } from '../global-variables.service';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    CommonModule,
+    AddressDiaologComponent
   ],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
@@ -28,6 +32,8 @@ export class UserDetailComponent {
   openAddressDiolog(){
     this.globalVariablesService.addressdialog = true;
   }
+
+  
   closeDialog(){
     this.globalVariablesService.showUser = false;
   }
