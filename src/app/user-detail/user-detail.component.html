@@ -17,7 +17,7 @@
                 </button>
                 <mat-menu #beforeHead="matMenu" xPosition="before">
                     <button mat-menu-item>Bearbeiten</button>
-                    <button mat-menu-item (click)="closeDialog()">Schließen</button>
+                    <button mat-menu-item >Schließen</button> <!-- (click)="closeDialog()" -->
                   </mat-menu>
             </div>
         </div>
@@ -34,7 +34,7 @@
                 </mat-card-content>
             </div>
             <div class="buttonContainer">
-                <button mat-icon-button (click)="openAddressDiolog()">
+                <button mat-icon-button (click)="openDialog()">
                     <mat-icon>edit</mat-icon>
                 </button>
                 
@@ -43,4 +43,4 @@
     </mat-card-content>
 </mat-card> <!-- *ngIf="globalVariablesService.addressdialog" -->
 
-<app-address-diaolog *ngIf="globalVariablesService.addressdialog"></app-address-diaolog>
+<!-- <app-address-diaolog *ngIf="globalVariablesService.addressdialog"></app-address-diaolog> -->

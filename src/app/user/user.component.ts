@@ -3,7 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule, MatDialog} from '@angular/material/dialog';
-import { AddUserComponent } from '../diaglog/add-user/add-user.component';
+import { AddUserComponent } from '../dialog/add-user/add-user.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import { Firestore, onSnapshot } from '@angular/fire/firestore';

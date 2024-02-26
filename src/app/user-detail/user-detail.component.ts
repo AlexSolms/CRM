@@ -8,7 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { GlobalVariablesService } from '../global-variables.service';
 import { CommonModule } from '@angular/common';
-import { AddressDiaologComponent } from '../diaglog/address-diaolog/address-diaolog.component';
+import { AddressDialogComponent } from '../dialog/address-dialog/address-dialog.component';
+import {MatDialogModule, MatDialog} from '@angular/material/dialog';
+import { UserDialogComponent } from '../dialog/user-dialog/user-dialog.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -19,7 +21,7 @@ import { AddressDiaologComponent } from '../diaglog/address-diaolog/address-diao
     MatIconModule,
     MatMenuModule,
     CommonModule,
-    AddressDiaologComponent
+    AddressDialogComponent
   ],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
@@ -29,12 +31,19 @@ export class UserDetailComponent {
   firebaseService = inject(FirebaseService);
  globalVariablesService = inject(GlobalVariablesService);
 
+ constructor(public dialog: MatDialog) {}
+
   openAddressDiolog(){
     this.globalVariablesService.addressdialog = true;
   }
 
   
-  closeDialog(){
+  /*  closeDialog(){
     this.globalVariablesService.showUser = false;
+  }  */
+
+  openDialog(){
+    this.dialog.open(AddressDialogComponent);
+
   }
 }

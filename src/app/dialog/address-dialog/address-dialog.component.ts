@@ -14,16 +14,16 @@ import { MatButtonModule } from '@angular/material/button';
     MatIconModule,
     MatButtonModule
   ],
-  templateUrl: './address-diaolog.component.html',
-  styleUrl: './address-diaolog.component.scss'
+  templateUrl: './address-dialog.component.html',
+  styleUrl: './address-dialog.component.scss'
 })
-export class AddressDiaologComponent {
+export class AddressDialogComponent {
 
   firestore: Firestore = inject(Firestore);
   firebaseService = inject(FirebaseService);
   globalVariablesService = inject(GlobalVariablesService);
 
-  closeAddressDiolog(){
+  closeAddressDialog(){
     this.globalVariablesService.addressdialog = false;
   }
 }
