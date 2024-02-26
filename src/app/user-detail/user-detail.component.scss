@@ -1,49 +1,72 @@
 .headcard {
     background-color: rgba(35 107 161 / 27%);
-}
-
-.head {
     height: 400px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    @media screen and (min-width: 600px) {
-        justify-content: normal;
-    }
-    .headBottomContainer {
-        display: flex;
-        height: 400px;
-        align-items: center;
 
-        gap: 5vw;
-        flex-direction: column;
+    .headCardContent {
+        height: 100%;
 
-        @media screen and (min-width: 600px) {
-            height: 200px;
-            flex-direction: row;
-            align-items: flex-end;
-        }
-
-        @media screen and (min-width: 800px) {}
-
-        .imgContainer {
-
-
-            img {
-                border-radius: 34%;
-                height: auto;
-                width: 100%;
-                max-width: 200px;
-            }
-        }
-
-        .userDetailContainer {
-            
+        .head {
             height: 100%;
+            width: 100%;
             display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+            position: relative;
+
+            @media screen and (min-width: 600px) {
+                justify-content: normal;
+            }
+
+            .headBottomContainer {
+                display: flex;
+                height: 400px;
+                align-items: center;
+                gap: 5vw;
+                flex-direction: column;
+
+                @media screen and (min-width: 600px) {
+                    height: 200px;
+                    flex-direction: row;
+                    align-items: flex-end;
+                }
+
+                @media screen and (min-width: 800px) {}
+
+                .imgContainer {
+
+                    img {
+                        border-radius: 34%;
+                        height: auto;
+                        width: 100%;
+                        max-width: 200px;
+                    }
+                }
+
+                .userDetailContainer {
+
+                    height: 100%;
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: center;
+                    flex-direction: column;
+                }
+            }
+           
         }
+
     }
+}
+.buttonContainer{            
+    position: absolute;
+    right: 0px;
+    top:0px
+}
+.detailCardContent{
+    position: relative;
+    .addressContainerTitle{
+        height: 48px;
+        display: flex;
+        align-items: center;
+    }
+    
 }

@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { User } from '../models/user.interface';
 import { UserClass } from '../models/user.class';
 import { Firestore, collection, collectionData, addDoc, updateDoc, doc, setDoc, onSnapshot } from '@angular/fire/firestore';
+import { GlobalVariablesService } from './global-variables.service';
 //import { doc } from 'firebase/firestore';
 
 
@@ -10,9 +11,13 @@ import { Firestore, collection, collectionData, addDoc, updateDoc, doc, setDoc, 
 })
 export class FirebaseService {
   firestore: Firestore = inject(Firestore);
+  globalVariablesService = inject(GlobalVariablesService);
 
   userArry: User[] = [];
-  activeID:string = '3QejfTrdp7tYj8IdIYSw';
+  //brauche ich die globalVariable.activeID zum zwischenspeichern?
+  //vielleicht wenn ich eine Samlung an IDs aufrufen will?
+  //oder versuche ich doch die ID aus der URL auszulesen?
+  activeID:string = this.globalVariablesService.activeID;
   activeUser:UserClass = new UserClass;
   
 
@@ -26,7 +31,7 @@ export class FirebaseService {
 
     this.unsubSingleItem = this.getSingleUser(this.activeID); /* 3QejfTrdp7tYj8IdIYSw */
 
-
+    console.log('aktive Id Constructor: ', this.activeID);
   }
 
   ngOnDestroy() {
@@ -43,7 +48,7 @@ export class FirebaseService {
         this.userArry.push(this.setUserObject(element.data(), element.id));
        
       })
-      console.log('am ende des pushs', this.userArry);
+      //console.log('am ende des pushs', this.userArry);
     });
   }
 
@@ -57,8 +62,8 @@ export class FirebaseService {
         let newUser = new UserClass(user.data());
       this.activeUser = newUser;
     }
-      console.log('activeUser: ', this.activeUser);
-      console.log('activeUser Name: ', this.activeUser.firstName);
+     // console.log('activeUser: ', this.activeUser);
+      //console.log('activeUser Name: ', this.activeUser.firstName);
     });
   }
 
@@ -80,7 +85,7 @@ export class FirebaseService {
    * @param user - the user which should be add
    */
   async addToFirestore(user: any) {
-    console.log("User: ", user);
+    //console.log("User: ", user);
     await addDoc(this.getUserRef(), user).catch(
       (err) => { console.error(err) }
     ).then(
@@ -110,6 +115,9 @@ export class FirebaseService {
   setActiveUserId(userId:string | undefined){
     if(userId)
     this.activeID = userId;
+  //brauche ich das hier?
+    this.globalVariablesService.activeID = this.activeID;
+    this.globalVariablesService.showUser = true;
   console.log('aktive Id: ', this.activeID);
   this.getSingleUser(this.activeID)
   }

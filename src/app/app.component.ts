@@ -4,6 +4,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
+import { GlobalVariablesService } from './global-variables.service';
 
 
 @Component({
@@ -22,6 +23,7 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class AppComponent {
 
+  globalVariablesService =inject(GlobalVariablesService);
   title = 'simple-crm';
   showFiller = false;
 

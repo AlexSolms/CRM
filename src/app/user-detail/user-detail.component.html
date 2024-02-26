@@ -1,28 +1,47 @@
 <mat-card class="headcard">
-    <mat-card-content>
+    <mat-card-content class="headCardContent">
         <div class="head">
             <div class="headBottomContainer">
                 <div class="imgContainer">
                     <img src="assets/img/avatar/avatar_man_1.svg" alt="Profile image man">
                 </div>
                 <div class="userDetailContainer">
-                    <h2>Name</h2>
-                    E-Mail <br>
-                    address
+                    <h2>{{firebaseService.activeUser.firstName}} {{firebaseService.activeUser.lastName}}</h2>
+                    {{firebaseService.activeUser.email}} <br>
+
                 </div>
             </div>
+            <div class="buttonContainer">
+                <button mat-icon-button  [matMenuTriggerFor]="beforeHead">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #beforeHead="matMenu" xPosition="before">
+                    <button mat-menu-item>Bearbeiten</button>
+                    <button mat-menu-item (click)="closeDialog()">Schließen</button>
+                  </mat-menu>
+            </div>
         </div>
- </mat-card-content>
+    </mat-card-content>
 </mat-card>
-<mat-card class="mt-32">
-    <mat-card-content>
-        
-            <mat-card-title>Address</mat-card-title>
-            <mat-card-content>
-                Musterstr 43 <br>
-                002211 Musterstadt
-            </mat-card-content>
-            
-          
- </mat-card-content>
+<mat-card>
+    <mat-card-content class="detailCardContentContainer">
+        <div class="detailCardContent">
+            <div class="addressContainer">
+                <mat-card-title class="addressContainerTitle">Address</mat-card-title>
+                <mat-card-content>
+                    {{firebaseService.activeUser.street}} <br>
+                    <span>{{firebaseService.activeUser.zipCode}} {{firebaseService.activeUser.city}}</span>
+                </mat-card-content>
+            </div>
+            <div class="buttonContainer">
+                <button mat-icon-button [matMenuTriggerFor]="beforeAddress" (click)="openAddressDiolog()">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #beforeAddress="matMenu" xPosition="before">
+                    <button mat-menu-item>Bearbeiten</button>
+                    <button mat-menu-item>Hinzufügen</button>
+                  </mat-menu>
+            </div>
+        </div>
+    </mat-card-content>
 </mat-card>

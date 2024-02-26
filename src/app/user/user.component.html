@@ -1,5 +1,5 @@
-<mat-card class="card">
-  <mat-card-content>
+<mat-card *ngIf="!globalVariablesService.showUser" class="card">
+  <mat-card-content >
  
     <table class="user-table">
       <tr>
@@ -7,7 +7,7 @@
         <th>E-Mail</th>
         <th>City</th>
       </tr>
-      <tr *ngFor="let user of this.firebaseService.userArry" [routerLink]="['/user/' + user.id]" (click)="firebaseService.setActiveUserId(user.id)"> <!-- (click)="firebaseService.setActiveUserId(user.id)" -->
+      <tr *ngFor="let user of this.firebaseService.userArry"  (click)="firebaseService.setActiveUserId(user.id)"> <!-- [routerLink]="['/user/' + user.id]" -->
         <td>{{ user.firstName }} {{ user.lastName }}</td>
         <td> {{ user.email }}</td>
         <td>{{ user.city }}</td>
@@ -20,3 +20,4 @@
 
   <mat-icon>add</mat-icon>
 </button>
+<app-user-detail *ngIf="globalVariablesService.showUser"></app-user-detail>

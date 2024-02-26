@@ -12,13 +12,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { provideNativeDateAdapter } from '@angular/material/core';
-//import { User } from '../../../models/user.class';
-import { User } from '../../../models/user.interface';
+import { UserClass } from '../../../models/user.class';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
-import { Firestore, collection, collectionData, addDoc, updateDoc } from '@angular/fire/firestore';
+import { Firestore } from '@angular/fire/firestore';
 import { FirebaseService } from '../../firebase.service';
 
 
@@ -80,7 +79,7 @@ export class AddUserComponent {
 
 
   addUser() {
-    let user: User = {
+    let user: UserClass = {
       firstName: this.firstName,
       lastName: this.lastName,
       email: this.email,

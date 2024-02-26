@@ -1,11 +1,11 @@
 export class UserClass {
-    id:string;
+    id?:string;
     firstName: string;
     lastName: string;
     birthDate: number;
     email: string;
     street: string;
-    zipCode: number;
+    zipCode: number | null;
     city: string;
 
     constructor(obj?: any) {
@@ -15,7 +15,7 @@ export class UserClass {
         this.birthDate = obj? obj.birthDate : '';
         this.email = obj? obj.email : '';
         this.street = obj? obj.street : '';
-        this.zipCode = obj? obj.zipCode : '';
+        this.zipCode = obj? obj.zipCode : null;
         this.city = obj? obj.city : '';
     }
 

@@ -11,6 +11,8 @@ import { FirebaseService } from '../firebase.service';
 import { User } from '../../models/user.interface';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { GlobalVariablesService } from '../global-variables.service';
+import { UserDetailComponent } from '../user-detail/user-detail.component';
 
 export interface PeriodicElement {
   name: string;
@@ -44,7 +46,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
     MatCardModule,
     MatTableModule,
     CommonModule,
-    RouterModule
+    RouterModule,
+    UserDetailComponent
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
@@ -53,6 +56,7 @@ export class UserComponent {
 
   firestore: Firestore = inject(Firestore);
   firebaseService =inject(FirebaseService);
+  globalVariablesService = inject(GlobalVariablesService);
 
 //  displayedColumns: string[] = ['name', 'email', 'city'];
  // dataSource = ELEMENT_DATA;
@@ -62,7 +66,7 @@ export class UserComponent {
 
   constructor(public dialog: MatDialog) {
     
-   // console.log('ELEMENT_DATA: ',ELEMENT_DATA);
+
   //  console.log('userArrystart: ', this.firebaseService.userArry);
     
     
