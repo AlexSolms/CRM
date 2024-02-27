@@ -16,8 +16,8 @@
                     <mat-icon>more_vert</mat-icon>
                 </button>
                 <mat-menu #beforeHead="matMenu" xPosition="before">
-                    <button mat-menu-item>Bearbeiten</button>
-                    <button mat-menu-item >Schließen</button> <!-- (click)="closeDialog()" -->
+                    <button mat-menu-item (click)="openNameDialog()">Bearbeiten</button>
+                    <button mat-menu-item (click)="closeDialog()">Schließen</button> <!-- (click)="closeDialog()" -->
                   </mat-menu>
             </div>
         </div>
@@ -34,7 +34,7 @@
                 </mat-card-content>
             </div>
             <div class="buttonContainer">
-                <button mat-icon-button (click)="openDialog()">
+                <button mat-icon-button (click)="openAdressDialog()">
                     <mat-icon>edit</mat-icon>
                 </button>
                 

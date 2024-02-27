@@ -9,7 +9,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { GlobalVariablesService } from '../global-variables.service';
 import { CommonModule } from '@angular/common';
 import { AddressDialogComponent } from '../dialog/address-dialog/address-dialog.component';
-import {MatDialogModule, MatDialog} from '@angular/material/dialog';
+import { MatDialog} from '@angular/material/dialog';
 import { UserDialogComponent } from '../dialog/user-dialog/user-dialog.component';
 
 @Component({
@@ -21,7 +21,6 @@ import { UserDialogComponent } from '../dialog/user-dialog/user-dialog.component
     MatIconModule,
     MatMenuModule,
     CommonModule,
-    AddressDialogComponent
   ],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
@@ -38,12 +37,17 @@ export class UserDetailComponent {
   }
 
   
-  /*  closeDialog(){
+    closeDialog(){
     this.globalVariablesService.showUser = false;
-  }  */
+  }  
 
-  openDialog(){
+  openAdressDialog(){
     this.dialog.open(AddressDialogComponent);
+
+  }
+
+  openNameDialog(){
+    this.dialog.open(UserDialogComponent);
 
   }
 }

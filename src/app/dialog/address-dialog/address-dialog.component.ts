@@ -5,6 +5,7 @@ import { FirebaseService } from '../../firebase.service';
 import { MatIconModule } from '@angular/material/icon';
 import { GlobalVariablesService } from '../../global-variables.service';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-address-diaolog',
@@ -12,7 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     MatCardModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   templateUrl: './address-dialog.component.html',
   styleUrl: './address-dialog.component.scss'
@@ -23,7 +24,8 @@ export class AddressDialogComponent {
   firebaseService = inject(FirebaseService);
   globalVariablesService = inject(GlobalVariablesService);
 
-  closeAddressDialog(){
-    this.globalVariablesService.addressdialog = false;
+  constructor( public dialogRef: MatDialogRef<AddressDialogComponent>) {}
+  closeAdressDialog() {
+    this.dialogRef.close();
   }
 }
